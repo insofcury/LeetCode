@@ -23,22 +23,24 @@
 #include <iomanip>
 using namespace std;
 
-int arr[38] = {0};
-        
-        int tribonacci(int n) {
-            arr[0] = 0, arr[1] = 1, arr[2] = 1;
-            if(n <= 2){
-                return arr[n];
-            }
-            
-            if(arr[n] == 0)
-                arr[n]= tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3);
-            return arr[n];
-        }
+int arr[46] = {0};
+int climbStairs(int n)
+{
+    arr[0] = 0;
+    arr[1] = 1;
+    arr[2] = 2;
+    if (n <= 2)
+        return arr[n];
+
+    if (arr[n] == 0)
+    {
+        arr[n] = climbStairs(n - 1) + climbStairs(n - 2);
+    }
+    return arr[n];
+}
 
 int32_t main()
 {
-    int n = 10;
-    cout<<tribonacci(n); 
-
+    int n;
+    cout << climbStairs(n);
 }
